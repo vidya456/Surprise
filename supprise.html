@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Nana ❤️</title>
+
+<style>
+
+*{box-sizing:border-box;}
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+text-align:center;
+}
+
+#msg1,#msg2,#msg3,#msg4{
+font-weight:650;
+font-family:Arial, Helvetica, sans-serif ;
+color:#2b2b2b;
+letter-spacing:0.6px;
+font-style:italic;
+font-size:18px;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+opacity:0;
+transition:opacity 1s ease;
+pointer-events:none;
+}
+
+.page.active{
+opacity:1;
+pointer-events:auto;
+}
+
+button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{transform:scale(1.1);}
+
+.arrow{
+position:fixed;
+top:50%;
+font-size:32px;
+cursor:pointer;
+background:none;
+border:none;
+animation:slowbeat 2s infinite;
+z-index:9999;
+}
+
+.left{left:20px;}
+.right{right:20px;}
+
+@keyframes slowbeat{
+0%{transform:scale(1);}
+50%{transform:scale(1.15);}
+100%{transform:scale(1);}
+}
+
+h1{
+    font-style: italic;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(23, 78, 23);
+}
+h2{
+    font-style:oblique;
+    color: maroon;
+}
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+
+.heart{
+position:absolute;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0;}
+50%{opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+
+img{
+max-width:420px;
+width:90%;
+margin-top:20px;
+border-radius:20px;
+}
+
+video{
+max-width:520px;
+width:90%;
+margin-top:20px;
+border-radius:20px;
+border:6px solid rgb(221,137,137);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+#letter{
+display:none;
+background:#ffd6d6;
+padding:30px;
+border-radius:20px;
+max-width:600px;
+animation:open 2s ease;
+}
+
+@keyframes open{
+from{transform:scale(0);}
+to{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="song1" autoplay muted loop>
+<source src="bgsong.mp4" type="audio/mp4">
+</audio>
+
+<audio id="song6" loop>
+<source src="bgsong.mp4" type="audio/mp4">
+</audio>
+
+<div class="hearts"></div>
+
+<button id="leftArrow" class="arrow left" onclick="goPrev()">❤️</button>
+<button id="rightArrow" class="arrow right" onclick="goNext()" disabled style="opacity:.4">❤️</button>
+
+<!-- PAGE 1 -->
+<div class="page active" id="p1">
+<h1>Happy Birthday Nana🫂💖</h1>
+<h2>I Love You Nana....! <br> Do you love me ?</h2>
+<button onclick="yes1()">Yes</button>
+<button id="noBtn" onclick="runNo()">No</button>
+<p id="msg1"></p>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="p2">
+<h2>Here’s a little surprise from me… what would you like? 💖</h2>
+<div id="p2buttons">
+<button onclick="magic()">Magic Moment ✨</button>
+<button onclick="dream()">Dream Moment 💫</button>
+</div>
+<img id="gif2">
+<p id="msg2"></p>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="p3">
+<h2>Do you know why sometimes I get jealous or a little over-possessive? 💭</h2>
+<div id="p3buttons">
+<button onclick="fear()">Fear 💖</button>
+<button onclick="fear()">Lose 💖</button>
+</div>
+<p id="msg3"></p>
+</div>
+
+<!-- PAGE 4 -->
+
+<div class="page" id="p4">
+<h2>What do I choose between?</h2>
+<button id="happyBtn" onclick="runHappy()">Happiness</button>
+<button onclick="chooseYou()">You</button>
+<p id="msg4"></p>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="p5">
+<h2>Will you marry me? 💍</h2>
+<button id="yes5" onclick="yes5()">Yes</button>
+<button id="no5" onclick="runNo5()">No</button>
+
+<div id="letter">
+<p>
+Nana, we are in love now, but you know you are my best friend.<br>
+Okapudu manam best friends, taruvatha love, kani life long you are only my best friend Nana.<br>
+Nuvvu lekapoyi unte na life pakka ila undedhi kadhu Nana.<br>
+Niku telidhu nuvvu na life lo entha important oo ani.<br>
+I can lose anything for you.<br>
+Life 100 times repeat aina sare, nenu ninnu 100 times choose chesukunta.<br>
+Urkene matalu chepthundhi ee pandhi dhi anukoku…<br>
+Ardam chesuko Nana,<br>
+naku nuvvu ante chala istam,nuvvu naku chala important na life lo more than everyone.<br>
+Naku nuvvu kavali Nana, edi emaina sare kalisi undham.<br>
+Pelli chesukundham, settle avudham.<br>
+Nenu nitho unta… nuvvu ela unna nitho unta.<br>
+Nenu ninu happy ga chusukunta nana<br>
+Na life lo nuvvu unte chalu Nana, inkem kavali anipinchadhu.<br>
+Pandhi nakana baga evaru chusukoru gurthu petuko<br>
+I just want you with me… today, tomorrow and forever.<br>
+Thank you for everything Nana.<br>
+You mean the world to me. ❤️
+</p>
+</div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page" id="p6">
+<h1>Happy Birthday Nana ❤️</h1>
+<button id="surpriseBtn" onclick="playVideo()">Surprise 🎁</button>
+
+<video id="bdayVideo" controls style="display:none">
+<source src="birthday.mp4" type="video/mp4">
+</video>
+
+<h2 id="finalMsg" style="display:none"> Love you nana ❤️</h2>
+</div>
+
+<script>
+
+/* MUSIC START */
+window.onload=function(){
+let song=document.getElementById("song1")
+song.muted=false
+song.play()
+}
+
+let page=1
+
+function enableRight(){
+document.getElementById("rightArrow").disabled=false
+document.getElementById("rightArrow").style.opacity="1"
+}
+
+function disableRight(){
+document.getElementById("rightArrow").disabled=true
+document.getElementById("rightArrow").style.opacity=".4"
+}
+
+function show(p){
+document.querySelectorAll(".page").forEach(e=>e.classList.remove("active"))
+document.getElementById("p"+p).classList.add("active")
+page=p
+disableRight()
+}
+
+function goNext(){
+if(document.getElementById("rightArrow").disabled)return
+if(page<6)show(page+1)
+}
+
+function goPrev(){
+if(page>1)show(page-1)
+}
+
+/* PAGE1 */
+
+function yes1(){
+document.getElementById("noBtn").remove()
+document.getElementById("msg1").innerText="Naku telusu Nana You love Me ani...! good boy...ummaaa 😘"
+enableRight()
+}
+
+let noClicks=0
+function runNo(){
+let btn=document.getElementById("noBtn")
+btn.style.position="absolute"
+btn.style.left=Math.random()*80+"%"
+btn.style.top=Math.random()*80+"%"
+noClicks++
+if(noClicks==1)btn.innerText="No ane option a ledhu pandhi 🤍"
+else if(noClicks==2)btn.innerText="sakaga yes click chayi 🤍"
+else if(noClicks==3)btn.innerText="samputha yes anu 🤍"
+else btn.innerText="Aryyy yes click anana🤍"
+}
+
+/* PAGE2 */
+
+function magic(){
+document.getElementById("p2buttons").style.display="none"
+document.getElementById("gif2").src="https://media.giphy.com/media/ABjJcFelbuanC/giphy.gif"
+document.getElementById("msg2").innerText="Every moment with you feels magical nana ❤️"
+enableRight()
+}
+
+function dream(){
+document.getElementById("p2buttons").style.display="none"
+document.getElementById("gif2").src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3U3Mms5c3kya2w3Z2Y3bHI2MHd4OWx4Z2kyam96YWVqbDM4Y3E1ZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/RPeh9zzA1IaTm/giphy.gif"
+document.getElementById("msg2").innerText="You are my favourite dream that came true nana ❤️"
+enableRight()
+}
+
+/* PAGE3 */
+
+function fear(){
+document.getElementById("p3buttons").style.display="none"
+document.getElementById("msg3").innerHTML=
+"I get jealous😏 not because I don't trust you😒, but naku bayam nv ekada dooram avuthavo ani🥺<br>"+
+"Namakam leka kadhu Nana,🫂 i trust you more than i trust Myself <br>"+
+"Ardam chesuko nana....!💕 I can't imagine my life without you<br>"+
+"<b>I have a fear of losing you ❤️</b>";
+enableRight()
+}
+
+/* PAGE4 */
+
+let happyClicks=0
+function runHappy(){
+let btn=document.getElementById("happyBtn")
+btn.style.position="absolute"
+btn.style.left=Math.random()*80+"%"
+btn.style.top=Math.random()*80+"%"
+happyClicks++
+if(happyClicks==1)btn.innerText="Nuv lekapothe happiness undadhu nana🫂 "
+else if(happyClicks==2)btn.innerText="you are Sweetest smile 🥰"
+else if(happyClicks==3)btn.innerText="you click chayi"
+else btn.innerText="go for you"
+}
+
+function chooseYou(){
+enableRight()
+document.getElementById("happyBtn").remove()
+document.getElementById("msg4").innerText= "Nuvu na life lo chala happiness ni echav Nana 🫶 you are not just my happiness...!🫂 You mean everything to Me Nana..!🤗";
+}
+
+/* PAGE5 */
+
+let no5c=0
+function runNo5(){
+let btn=document.getElementById("no5")
+btn.style.position="absolute"
+btn.style.left=Math.random()*80+"%"
+btn.style.top=Math.random()*80+"%"
+no5c++
+if(no5c==1)btn.innerText="No ah? Niku vere option undha…Nana?"
+else if(no5c==2)btn.innerText="Of course yes, chitti Anali…! Pandhi"
+else btn.innerText="please click yes Nana."
+}
+
+function yes5(){
+enableRight()
+document.getElementById("yes5").remove()
+document.getElementById("no5").remove()
+document.getElementById("letter").style.display="block"
+}
+
+/* VIDEO PAGE */
+
+function playVideo(){
+
+document.getElementById("song1").pause()
+document.getElementById("song6").pause()
+
+document.getElementById("surpriseBtn").style.display="none"
+
+let v=document.getElementById("bdayVideo")
+v.style.display="block"
+v.play()
+
+v.onended=function(){
+document.getElementById("finalMsg").style.display="block"
+}
+}
+
+/* HEARTS */
+
+function createHearts(){
+let container=document.querySelector(".hearts")
+for(let i=0;i<30;i++){
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"%"
+h.style.fontSize=Math.random()*20+10+"px"
+h.style.animationDuration=(Math.random()*5+5)+"s"
+container.appendChild(h)
+}
+}
+createHearts()
+
+</script>
+
+</body>
+</html>
